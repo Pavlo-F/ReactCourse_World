@@ -5,5 +5,10 @@ export const GET_PHOTOS_FAIL = 'GET_PHOTOS_FAIL';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
+
 export const CREATE_USER_SUCCESS = 'CREATE_USER_FAIL';
 export const CREATE_USER_FAIL = 'CREATE_USER_FAIL';
+
+export const EVENT_REQUEST = 'EVENT_REQUEST';
+export const EVENT_SUCCESS = 'EVENT_SUCCESS';
+export const EVENT_FAIL = 'EVENT_FAIL';

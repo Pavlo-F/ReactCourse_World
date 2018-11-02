@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react'
 import UserContainer from './UserContainer'
+import WorldEventContainer from './WorldEventContainer'
 import './App.css'
 
 export default class App extends Component {
@@ -12,6 +13,7 @@ export default class App extends Component {
 
                 
                 <UserContainer />
+                <WorldEventContainer />
 
             </div>
         )

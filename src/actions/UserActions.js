@@ -1,8 +1,10 @@
-export const LOGIN_REQUEST = 'LOGIN_REQUEST';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAIL = 'LOGIN_FAIL';
-export const CREATE_USER_SUCCESS = 'CREATE_USER_FAIL';
-export const CREATE_USER_FAIL = 'CREATE_USER_FAIL';
+import {
+    LOGIN_REQUEST,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    CREATE_USER_SUCCESS,
+    CREATE_USER_FAIL
+} from '../consts/const';
 
 export function handleLogin(userName) {
     return function (dispatch) {
@@ -10,6 +12,7 @@ export function handleLogin(userName) {
         if (!userName) {
             dispatch({
                 type: LOGIN_FAIL,
+                payload: "user name is empty"
             });
 
             return;
@@ -59,6 +62,7 @@ export function createUser(userName) {
         if (!userName) {
             dispatch({
                 type: CREATE_USER_FAIL,
+                payload: "user name is empty"
             });
 
             return;
@@ -93,6 +97,7 @@ export function createUser(userName) {
 
             dispatch({
                 type: CREATE_USER_FAIL,
+                payload: error
             });
         });
 

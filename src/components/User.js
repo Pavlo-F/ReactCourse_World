@@ -42,15 +42,20 @@ export class User extends React.Component {
         } else {
             return (
                 <div>
+                    <div style={{ display: 'block' }}>
+                        <span>Пользователь</span>
+
+                        <input id="userNameid" type="text" 
+                        onChange={this.handleChange}
+                            value={userNameid} />
+                    </div>
+
                     <button className="btn" onClick={this.onLoginBtnClick}>
                         Загрузить
                     </button>
                     <button className="btn" onClick={this.onCreateUserBtnClick}>
                         Создать
                     </button>
-                    <input id="userNameid" type="text"
-                        onChange={this.handleChange}
-                        value={userNameid} />
                 </div>
             )
         }
@@ -58,7 +63,7 @@ export class User extends React.Component {
 
 
     render() {
-        return (<div className="ib user">{this.renderTemplate()}</div>)
+        return (<div className="ib user" style={{ display: 'inline', margin: '1px' }}>{this.renderTemplate()}</div>)
     }
 }
 

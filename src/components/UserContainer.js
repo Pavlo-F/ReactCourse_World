@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { User } from '../components/User';
+import { User } from './User';
 import { handleLogin, createUser } from '../actions/UserActions';
 
 class UserContainer extends React.Component {

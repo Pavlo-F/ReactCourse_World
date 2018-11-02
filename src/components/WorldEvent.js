@@ -28,7 +28,7 @@ export class WorldEvent extends React.Component {
                 <div >
                     <button className="btn" onClick={this.props.getTemperature} >
                         Температура
-                        </button>
+                    </button>
                     <button className="btn" onClick={this.props.getTimeOfday} >
                         Время суток
                     </button>

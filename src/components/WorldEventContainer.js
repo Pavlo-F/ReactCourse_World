@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { WorldEvent } from '../components/WorldEvent';
+import { WorldEvent } from './WorldEvent';
 import { getTemperature, getTimeOfday } from '../actions/WorldActions';
 
 class WorldEventContainer extends React.Component {

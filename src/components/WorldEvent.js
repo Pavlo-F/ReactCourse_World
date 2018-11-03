@@ -1,14 +1,12 @@
-﻿import React from 'react';
-import PropTypes from 'prop-types';
+﻿import React from "react";
+import PropTypes from "prop-types";
 
-export class WorldEvent extends React.Component {
-
+export default class WorldEvent extends React.PureComponent {
     renderTemplate = () => {
-        const { event, error, isFetching } = this.props;
-
+        const { event, error } = this.props.event;
 
         if (error) {
-            return <p>Во время запроса произошла ошибка, обновите страницу</p>
+            return <p>Во время запроса произошла ошибка, обновите страницу</p>;
         }
 
         if (event) {
@@ -17,8 +15,10 @@ export class WorldEvent extends React.Component {
                     <p>Температура: {event.temperature}</p>
                     <p>Время суток: {event.time}</p>
                 </div>
-            )
+            );
         }
+
+        return "";
     }
 
 
@@ -36,7 +36,7 @@ export class WorldEvent extends React.Component {
 
                 <div className="ib user">{this.renderTemplate()}</div>
             </div>
-            )
+        );
     }
 }
 
@@ -46,4 +46,4 @@ WorldEvent.propTypes = {
     isFetching: PropTypes.bool,
     getTemperature: PropTypes.func.isRequired,
     getTimeOfday: PropTypes.func.isRequired,
-}
+};

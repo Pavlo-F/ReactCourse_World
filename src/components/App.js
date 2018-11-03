@@ -1,7 +1,7 @@
-﻿import React, { Component } from 'react';
-import UserContainer from './UserContainer';
-import WorldEventContainer from './WorldEventContainer';
-import './App.css';
+﻿import React, { Component } from "react";
+import UserContainer from "./UserContainer";
+import WorldEventContainer from "./WorldEventContainer";
+import "./App.css";
 
 export default class App extends Component {
     render() {
@@ -11,11 +11,10 @@ export default class App extends Component {
                     <h1 className="App-title">Мой мир</h1>
                 </header>
 
-                
                 <UserContainer />
                 <WorldEventContainer />
 
             </div>
-        )
+        );
     }
 }

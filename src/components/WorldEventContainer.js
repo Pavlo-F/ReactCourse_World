@@ -1,38 +1,26 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { WorldEvent } from './WorldEvent';
-import { getTemperature, getTimeOfday } from '../actions/WorldActions';
+import React from "react";
+import { connect } from "react-redux";
+import WorldEvent from "./WorldEvent";
+import { getTemperature, getTimeOfday } from "../actions/WorldActions";
 
-class WorldEventContainer extends React.Component {
-  render() {
-      const { event, getTemperature, getTimeOfday } = this.props;
-
-    return (
-        <WorldEvent
-            event={event.event}
-            error={event.error}
-            isFetching={event.isFetching}
-            getTemperature={getTemperature}
-            getTimeOfday={getTimeOfday}
-        />
-    )
-  }
+class WorldEventContainer extends React.PureComponent {
+    render() {
+        return (
+            <WorldEvent {...this.props}/>
+        );
+    }
 }
 
-const mapStateToProps = store => {
-    return {
-        event: store.event,
-    }
-};
+const mapStateToProps = store => ({
+    event: store.event,
+});
 
-const mapDispatchToProps = dispatch => {
-    return {
-        getTemperature: () => dispatch(getTemperature()),
-        getTimeOfday: () => dispatch(getTimeOfday())
-    }
-};
+const mapDispatchToProps = dispatch => ({
+    getTemperature: () => dispatch(getTemperature()),
+    getTimeOfday: () => dispatch(getTimeOfday()),
+});
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(WorldEventContainer);

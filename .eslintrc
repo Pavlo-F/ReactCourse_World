@@ -1,13 +1,20 @@
 {
   "extends": [
     "react-app",
-    "prettier"
+    "prettier",
+    "airbnb-base"
   ],
   "rules": {
     "jsx-quotes": [
       1,
       "prefer-double"
-    ]
+    ],
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"],
+    "no-console": 0,
+    "linebreak-style": 0,
+    "indent" : ["error", 4],
+    "class-methods-use-this" : ["off"]
   },
   "plugins": [
     "prettier"

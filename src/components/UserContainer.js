@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import User from "./User";
-import { handleLogin, createUser } from "../actions/UserActions";
+import { handleLogin, createWorld, worldTick } from "../actions/UserActions";
 
 class UserContainer extends React.PureComponent {
     render() {
@@ -17,7 +17,8 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
     handleLogin: userName => dispatch(handleLogin(userName)),
-    createUser: userName => dispatch(createUser(userName)),
+    createWorld: (userName, map, events) => dispatch(createWorld(userName, map, events)),
+    worldTick: props => dispatch(worldTick(props)),
 });
 
 export default connect(

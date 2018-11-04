@@ -4,6 +4,7 @@ import {
     LOGIN_FAIL,
     CREATE_USER_SUCCESS,
     CREATE_USER_FAIL,
+    WORLD_TICK,
 } from "../consts/const";
 
 export function handleLogin(userName) {
@@ -36,7 +37,7 @@ export function handleLogin(userName) {
 
                 dispatch({
                     type: LOGIN_SUCCESS,
-                    payload: data.user,
+                    payload: data,
                 });
             })
             .catch((error) => {
@@ -51,7 +52,7 @@ export function handleLogin(userName) {
 }
 
 
-export function createUser(userName) {
+export function createWorld(userName, worldMap, worldEvents) {
     return function (dispatch) {
         if (!userName) {
             dispatch({
@@ -71,8 +72,8 @@ export function createUser(userName) {
             },
             body: JSON.stringify({
                 user: eventName,
-                map: { 1: 1 },
-                events: [{ 1: 1 }, { 1: 2 }],
+                map: worldMap,
+                events: worldEvents,
             }),
         })
             .then(response => response.json())
@@ -92,5 +93,39 @@ export function createUser(userName) {
                     payload: error,
                 });
             });
+    };
+}
+
+
+export function worldTick(props) {
+    return function (dispatch) {
+        const map1 = {
+            size: {
+                width: 10,
+                height: 10,
+            },
+            obj: [{
+                cell: { x: 2, y: 5 },
+                color: "red",
+                type: "npc",
+            },
+            {
+                cell: { x: 6, y: 3 },
+                color: "#9b6ee4",
+                type: "npc",
+            },
+            {
+                cell: { x: 7, y: 7 },
+                color: "black",
+                resource: "rock",
+                type: "location",
+            },
+            ],
+        };
+
+        dispatch({
+            type: WORLD_TICK,
+            payload: { ...props, map: map1 },
+        });
     };
 }

@@ -12,3 +12,5 @@ export const CREATE_USER_FAIL = "CREATE_USER_FAIL";
 export const EVENT_REQUEST = "EVENT_REQUEST";
 export const EVENT_SUCCESS = "EVENT_SUCCESS";
 export const EVENT_FAIL = "EVENT_FAIL";
+
+export const WORLD_TICK = "WORLD_TICK";

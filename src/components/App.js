@@ -1,9 +1,11 @@
-﻿import React, { Component } from "react";
+﻿import React, { PureComponent } from "react";
+
 import UserContainer from "./UserContainer";
 import WorldEventContainer from "./WorldEventContainer";
+import WorldContainer from "./WorldContainer";
 import "./App.css";
 
-export default class App extends Component {
+export default class App extends PureComponent {
     render() {
         return (
             <div className="app">
@@ -13,6 +15,7 @@ export default class App extends Component {
 
                 <UserContainer />
                 <WorldEventContainer />
+                <WorldContainer />
 
             </div>
         );

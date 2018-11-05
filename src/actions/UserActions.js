@@ -52,7 +52,7 @@ export function handleLogin(userName) {
 }
 
 
-export function createWorld(userName, worldMap, worldEvents) {
+export function createWorld(userName, worldMap, worldEvents, isSendEvent) {
     return function (dispatch) {
         if (!userName) {
             dispatch({
@@ -80,10 +80,12 @@ export function createWorld(userName, worldMap, worldEvents) {
             .then((data) => {
                 console.log(data);
 
-                dispatch({
-                    type: CREATE_USER_SUCCESS,
-                    payload: data.user,
-                });
+                if (isSendEvent) {
+                    dispatch({
+                        type: CREATE_USER_SUCCESS,
+                        payload: data.user,
+                    });
+                }
             })
             .catch((error) => {
                 console.log("Request failed", error);
@@ -97,35 +99,43 @@ export function createWorld(userName, worldMap, worldEvents) {
 }
 
 
-export function worldTick(props) {
+function getRandomInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+export function worldTick(data) {
     return function (dispatch) {
-        const map1 = {
-            size: {
-                width: 10,
-                height: 10,
-            },
-            obj: [{
-                cell: { x: 2, y: 5 },
-                color: "red",
-                type: "npc",
-            },
-            {
-                cell: { x: 6, y: 3 },
-                color: "#9b6ee4",
-                type: "npc",
-            },
-            {
-                cell: { x: 7, y: 7 },
-                color: "black",
-                resource: "rock",
-                type: "location",
-            },
-            ],
-        };
+        const { map } = { ...data.world };
+
+        const newObjs = [];
+
+        for (let i = 0; i < map.obj.length; i++) {
+            const item = map.obj[i];
+
+            if (item.type === "npc") {
+                const randomX = getRandomInRange(-1, 1);
+                const randomY = getRandomInRange(-1, 1);
+
+                const stepX = item.cell.x + randomX;
+                const stepY = item.cell.y + randomY;
+
+                if (stepX <= map.size.width && stepX > 0) {
+                    item.cell.x = stepX;
+                }
+
+                if (stepY <= map.size.height && stepY > 0) {
+                    item.cell.y = stepY;
+                }
+            }
+
+            newObjs.push(item);
+        }
+
+        map.obj = newObjs;
 
         dispatch({
             type: WORLD_TICK,
-            payload: { ...props, map: map1 },
+            payload: { ...data, map },
         });
     };
 }

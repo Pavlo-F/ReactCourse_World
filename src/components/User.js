@@ -23,21 +23,25 @@ export default class User extends React.PureComponent {
                 cell: { x: 2, y: 5 },
                 color: "red",
                 type: "npc",
+                typeName: "Lion",
             },
             {
                 cell: { x: 4, y: 8 },
                 color: "grey",
                 type: "npc",
+                typeName: "Wolf",
             },
             {
                 cell: { x: 8, y: 8 },
-                color: "yellow",
+                color: "orange",
                 type: "npc",
+                typeName: "Lion",
             },
             {
                 cell: { x: 6, y: 3 },
                 color: "#9b6ee4",
                 type: "npc",
+                typeName: "Wolf",
             },
             {
                 cell: { x: 4, y: 5 },
@@ -61,13 +65,12 @@ export default class User extends React.PureComponent {
         };
 
         const events = [{ 1: 1 }, { 1: 2 }];
-        this.props.createWorld(userInput.value, map, events);
+        this.props.createWorld(userInput.value, map, events, true);
     }
 
     onSaveBtnClick = () => {
-        const {
-            name, map,
-        } = this.props.user;
+        const { map } = this.props.world;
+        const { name } = this.props.user;
 
         if (map && name) {
             const events = [{ 1: 1 }, { 1: 2 }];
@@ -76,13 +79,12 @@ export default class User extends React.PureComponent {
     }
 
     onWorldTickBtnClick = () => {
-        const {
-            name, map,
-        } = this.props.user;
+        const { map } = this.props.world;
+        const { name } = this.props.user;
 
         if (map && name) {
             const events = [{ 1: 1 }, { 1: 2 }];
-            this.props.worldTick({ ...this.props, events });
+            this.props.worldTick({ ...this.props, map, events });
         }
     }
 
@@ -93,9 +95,9 @@ export default class User extends React.PureComponent {
 
     renderTemplate = () => {
         const {
-            name, error, isFetching, map,
+            name, error, isFetching,
         } = this.props.user;
-
+        const { map } = this.props.world;
 
         if (error) {
             return <p>Во время запроса произошла ошибка, обновите страницу</p>;
@@ -114,7 +116,12 @@ export default class User extends React.PureComponent {
                 <button className="btn" onClick={this.onCreateWorldBtnClick}>
                     Создать
                 </button>
-
+                <svg width="20" height="20"
+                    id="aliens-go-home-canvas"
+                    preserveAspectRatio="xMaxYMax none"
+                >
+                    <circle cx={10} cy={10} r={5} />
+                </svg>
             </div>
         );
     }
@@ -152,8 +159,8 @@ export default class User extends React.PureComponent {
 }
 
 User.propTypes = {
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     error: PropTypes.string,
-    isFetching: PropTypes.bool.isRequired,
+    isFetching: PropTypes.bool,
     handleLogin: PropTypes.func.isRequired,
 };

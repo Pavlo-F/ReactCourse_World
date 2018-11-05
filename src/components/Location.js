@@ -13,7 +13,7 @@ export default class Location extends React.PureComponent {
             return <span style={{ backgroundColor: color, width: "100px", border: "1px solid" }}> Loc {cell.x} : {cell.y} </span>;
         }
 
-        return <pre style={{ width: "63px", border: "1px solid" }}> </pre>;
+        return <pre style={{ width: "63px"}}> </pre>;
     }
 
     render() {
@@ -27,5 +27,5 @@ export default class Location extends React.PureComponent {
 
 Location.propTypes = {
     color: PropTypes.string,
-    cell: PropTypes.Object.isRequired,
+    cell: PropTypes.Object,
 };

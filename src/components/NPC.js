@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Lion from "./NPCTypes/Lion";
+import Wolf from "./NPCTypes/Wolf";
 
 export default class NPC extends React.PureComponent {
     state = {
@@ -9,10 +11,23 @@ export default class NPC extends React.PureComponent {
     }
 
     renderTemplate = () => {
-        const { color, cell } = this.props;
+        const { color, cell, typeName } = this.props;
 
         if (color) {
-            return <span style={{ backgroundColor: color, width: "100px", border: "1px solid" }}> NPC {cell.x} : {cell.y} </span>;
+            switch (typeName) {
+            case "Lion": {
+                return (
+                    <Lion { ...this.props }/>
+                );
+            }
+            case "Wolf": {
+                return (
+                    <Wolf { ...this.props }/>
+                );
+            }
+
+            default: return "unknown type";
+            }
         }
 
         return "";
@@ -29,5 +44,5 @@ export default class NPC extends React.PureComponent {
 
 NPC.propTypes = {
     color: PropTypes.string,
-    cell: PropTypes.Object.isRequired,
+    cell: PropTypes.Object,
 };

@@ -10,7 +10,6 @@ const initialState = {
     name: "",
     error: "",
     isFetching: false,
-    map: {},
     events: [],
 };
 
@@ -21,7 +20,7 @@ export default function userReducer(state = initialState, action) {
 
     case CREATE_USER_SUCCESS:
     case LOGIN_SUCCESS:
-        return { ...state, isFetching: false, name: action.payload.user, map: action.payload.map, events: action.payload.events };
+        return { ...state, isFetching: false, name: action.payload.user, events: action.payload.events };
 
     case CREATE_USER_FAIL:
     case LOGIN_FAIL:

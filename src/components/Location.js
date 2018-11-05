@@ -1,5 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Grass from "./LocationTypes/Grass";
+import Rock from "./LocationTypes/Rock";
+import Lake from "./LocationTypes/Lake";
 
 export default class Location extends React.PureComponent {
     state = {
@@ -7,13 +10,30 @@ export default class Location extends React.PureComponent {
     }
 
     renderTemplate = () => {
-        const { color, cell } = this.props;
+        const { color, cell, resource } = this.props;
 
-        if (color) {
-            return <span style={{ backgroundColor: color, width: "100px", border: "1px solid" }}> Loc {cell.x} : {cell.y} </span>;
+        if (color && resource) {
+            switch (resource) {
+            case "grass": {
+                return (
+                    <Grass { ...this.props }/>
+                );
+            }
+            case "water": {
+                return (
+                    <Lake { ...this.props }/>
+                );
+            }
+            case "rock": {
+                return (
+                    <Rock { ...this.props }/>
+                );
+            }
+            default: return "unknown type";
+            }
         }
 
-        return <pre style={{ width: "63px"}}> </pre>;
+        return <pre style={{ width: "63px" }}> </pre>;
     }
 
     render() {

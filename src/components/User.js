@@ -108,20 +108,14 @@ export default class User extends React.PureComponent {
         }
 
         if (name) {
-            const m = JSON.stringify(map);
-            return <p>Мир {name} загружен. Карта {m}</p>;
+            //const m = JSON.stringify(map);
+            return <p>Мир {name} загружен.</p>;
         }
         return (
             <div>
                 <button className="btn" onClick={this.onCreateWorldBtnClick}>
                     Создать
                 </button>
-                <svg width="20" height="20"
-                    id="aliens-go-home-canvas"
-                    preserveAspectRatio="xMaxYMax none"
-                >
-                    <circle cx={10} cy={10} r={5} />
-                </svg>
             </div>
         );
     }

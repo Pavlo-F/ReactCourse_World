@@ -7,9 +7,9 @@ export default class Grass extends React.PureComponent {
         if (color) {
             return (
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                    width="150.000000pt" height="150.000000pt" viewBox="0 0 1280.000000 883.000000"
+                    width="120.000000pt" height="70.000000pt" viewBox="0 0 1280.000000 883.000000"
                     preserveAspectRatio="xMidYMid meet">
-                    <g transform="translate(0.000000,883.000000) scale(0.080000,-0.080000)"
+                    <g transform="translate(0.000000,883.000000) scale(0.080000,-0.150000)"
                         fill={color} stroke="none">
                         <path d="M6372 5954 c27 -29 44 -62 67 -134 46 -145 68 -224 100 -360 16 -69
 48 -183 70 -254 39 -124 40 -132 31 -199 -6 -38 -13 -82 -17 -96 -8 -33 -42

@@ -7,9 +7,9 @@ export default class Lake extends React.PureComponent {
         if (color) {
             return (
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                    width="200.000000pt" height="200.000000pt" viewBox="0 0 1280.000000 883.000000"
+                    width="150.000000pt" height="90.000000pt" viewBox="0 0 1280.000000 883.000000"
                     preserveAspectRatio="xMidYMid meet">
-                    <g transform="translate(0.000000,883.000000) scale(0.080000,-0.080000)"
+                    <g transform="translate(0.000000,883.000000) scale(0.080000,-0.150000)"
                         fill={color} stroke="none">
                         <path d="M3763 6213 c-8 -41 -13 -155 -13 -263 0 -125 -3 -189 -10 -185 -5 3
 -10 17 -10 31 0 32 -52 143 -58 125 -2 -7 0 -52 6 -100 21 -167 20 -353 -1

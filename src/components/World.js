@@ -67,9 +67,23 @@ export default class World extends React.PureComponent {
 
 
     render() {
+
+        const { event } = this.props.world;
+
+        let bgColor = "";
+
+        if (event && event.time === "night") {
+            bgColor = "rgb(39, 39, 39)";
+
+        } else {
+            bgColor = "rgb(255, 242, 196)";
+        }
+
+
         return (
             <div >
-                <div classID="worldId" style={{ width: "900px", border: "1px solid", backgroundColor: "rgb(255, 242, 196)" }}>{this.renderTemplate()}</div>
+                <div classID="worldId" style={{
+                    width: "900px", border: "1px solid", backgroundColor: bgColor }}>{this.renderTemplate()}</div>
             </div>
         );
     }

@@ -11,22 +11,23 @@ export default class Location extends React.PureComponent {
 
     renderTemplate = () => {
         const { color, cell, resource } = this.props;
+        const time = Date.now();
 
         if (color && resource) {
             switch (resource) {
             case "grass": {
                 return (
-                    <Grass { ...this.props }/>
+                    <Grass {...this.props} key={`grass_${time}`}/>
                 );
             }
             case "water": {
                 return (
-                    <Lake { ...this.props }/>
+                    <Lake {...this.props} key={`water_${time}`}/>
                 );
             }
             case "rock": {
                 return (
-                    <Rock { ...this.props }/>
+                    <Rock {...this.props} key={`rock_${time}`}/>
                 );
             }
             default: return "unknown type";
@@ -47,5 +48,5 @@ export default class Location extends React.PureComponent {
 
 Location.propTypes = {
     color: PropTypes.string,
-    cell: PropTypes.Object,
+    cell: PropTypes.object,
 };

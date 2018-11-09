@@ -13,8 +13,8 @@ const initialState = {
 
 export default function npcReducer(state = initialState, action) {
     switch (action.type) {
-    case EVENT_SUCCESS:
-        return { ...state, isFetching: false, events: action.payload };
+    //case EVENT_SUCCESS:
+    //    return { ...state, isFetching: false, events: action.payload };
 
 
     default:

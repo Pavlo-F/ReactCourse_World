@@ -41,7 +41,7 @@ export default class WorldEvent extends React.PureComponent {
 }
 
 WorldEvent.propTypes = {
-    event: PropTypes.Object,
+    event: PropTypes.object,
     error: PropTypes.string,
     isFetching: PropTypes.bool,
     getTemperature: PropTypes.func.isRequired,

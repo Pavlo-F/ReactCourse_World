@@ -5,7 +5,11 @@ import {
     CREATE_USER_SUCCESS,
     CREATE_USER_FAIL,
     WORLD_TICK,
+    GET_WORLD_FAIL,
+    GET_WORLD_SUCCESS,
 } from "../consts/const";
+
+import { getWorld, setWorld } from "../services/worldService";
 
 export function handleLogin(userName) {
     return function (dispatch) {
@@ -23,28 +27,30 @@ export function handleLogin(userName) {
         });
 
 
-        const url = `http://localhost:5000/world?name=${userName}`;
-        fetch(url)
-            .then((response) => {
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
-
-                return response.json();
-            })
+        getWorld(userName)
             .then((data) => {
-                console.log(data);
 
                 dispatch({
                     type: LOGIN_SUCCESS,
                     payload: data,
                 });
+
+                dispatch({
+                    type: GET_WORLD_SUCCESS,
+                    payload: data,
+                });
+
             })
             .catch((error) => {
                 console.log("Request failed", error);
 
                 dispatch({
                     type: LOGIN_FAIL,
+                    payload: error,
+                });
+
+                dispatch({
+                    type: GET_WORLD_FAIL,
                     payload: error,
                 });
             });
@@ -63,22 +69,15 @@ export function createWorld(userName, worldMap, worldEvents, isSendEvent) {
             return;
         }
 
-        const eventName = userName;
-        const url = "http://localhost:5000/world";
-        fetch(url, {
-            method: "post",
-            headers: {
-                "Content-type": "application/json; charset=UTF-8",
-            },
-            body: JSON.stringify({
-                user: eventName,
-                map: worldMap,
-                events: worldEvents,
-            }),
-        })
-            .then(response => response.json())
+
+        const body = JSON.stringify({
+            user: userName,
+            map: worldMap,
+            events: worldEvents,
+        });
+
+        setWorld(userName, body)
             .then((data) => {
-                console.log(data);
 
                 if (isSendEvent) {
                     dispatch({

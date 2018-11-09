@@ -97,7 +97,6 @@ export default class User extends React.PureComponent {
         const {
             name, error, isFetching,
         } = this.props.user;
-        const { map } = this.props.world;
 
         if (error) {
             return <p>Во время запроса произошла ошибка, обновите страницу</p>;
@@ -108,6 +107,7 @@ export default class User extends React.PureComponent {
         }
 
         if (name) {
+            //const { map } = this.props.world;
             //const m = JSON.stringify(map);
             return <p>Мир {name} загружен.</p>;
         }

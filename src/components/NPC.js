@@ -13,16 +13,18 @@ export default class NPC extends React.PureComponent {
     renderTemplate = () => {
         const { color, cell, typeName } = this.props;
 
+        const time = Date.now();
+
         if (color) {
             switch (typeName) {
             case "Lion": {
                 return (
-                    <Lion { ...this.props }/>
+                    <Lion {...this.props} key={`Lion_${time}`} />
                 );
             }
             case "Wolf": {
                 return (
-                    <Wolf { ...this.props }/>
+                    <Wolf {...this.props} key={`Wolf_${time}`}/>
                 );
             }
 
@@ -44,5 +46,5 @@ export default class NPC extends React.PureComponent {
 
 NPC.propTypes = {
     color: PropTypes.string,
-    cell: PropTypes.Object,
+    cell: PropTypes.object,
 };

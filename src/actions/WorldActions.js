@@ -4,23 +4,19 @@ import {
     EVENT_FAIL,
 } from "../consts/const";
 
-function requestEvent(url, event, dispatch) {
+import getEvent from "../services/eventService"
+
+function requestEvent(event, dispatch) {
     dispatch({
         type: EVENT_REQUEST,
     });
 
-    fetch(url, {
-        method: "post",
-        headers: {
-            "Content-type": "application/json; charset=UTF-8",
-        },
-        body: JSON.stringify({
-            eventName: event,
-        }),
-    })
-        .then(response => response.json())
+    const body = JSON.stringify({
+        eventName: event,
+    });
+
+    getEvent(body)
         .then((data) => {
-            console.log(data);
 
             dispatch({
                 type: EVENT_SUCCESS,
@@ -40,9 +36,7 @@ function requestEvent(url, event, dispatch) {
 export function getTemperature() {
     return function (dispatch) {
         const event = "temperature";
-        const url = "http://localhost:5000/event";
-
-        requestEvent(url, event, dispatch);
+        requestEvent(event, dispatch);
     };
 }
 
@@ -50,8 +44,6 @@ export function getTemperature() {
 export function getTimeOfday() {
     return function (dispatch) {
         const event = "timeOfday";
-        const url = "http://localhost:5000/event";
-
-        requestEvent(url, event, dispatch);
+        requestEvent(event, dispatch);
     };
 }

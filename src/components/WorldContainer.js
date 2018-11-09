@@ -13,6 +13,7 @@ class WorldContainer extends React.PureComponent {
 
 const mapStateToProps = store => ({
     world: store.world,
+    event: store.event,
 });
 
 const mapDispatchToProps = dispatch => ({

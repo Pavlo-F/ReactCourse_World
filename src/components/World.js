@@ -5,11 +5,13 @@ import LocationContainer from "./LocationContainer";
 
 export default class World extends React.PureComponent {
     renderTemplate = () => {
-        const { event, map, error } = this.props.world;
+        const { map, error } = this.props.world;
 
         if (error) {
             return <p>Во время запроса произошла ошибка, обновите страницу</p>;
         }
+
+        const time = Date.now();
 
         if (map && map.size) {
             const field = World.createField(map);
@@ -17,16 +19,16 @@ export default class World extends React.PureComponent {
             return (
                 <div className="board">
                     {
-                        field.map((obj) => {
+                        field.map((obj, index) => {
                             if (obj.type === "npc") {
                                 return (
-                                    <NPCContainer {...obj} />
+                                    <NPCContainer {...obj} key= { `NPCContainer_${time - index}` } />
                                 );
                             }
 
                             if (!obj || (obj && obj.type === "location")) {
                                 return (
-                                    <LocationContainer {...obj} />
+                                    <LocationContainer {...obj} key={ `LocationContainer_${time - index}` } />
                                 );
                             }
                         })
@@ -68,7 +70,7 @@ export default class World extends React.PureComponent {
 
     render() {
 
-        const { event } = this.props.world;
+        const { event } = this.props.event;
 
         let bgColor = "";
 
@@ -90,8 +92,8 @@ export default class World extends React.PureComponent {
 }
 
 World.propTypes = {
-    event: PropTypes.Object,
-    map: PropTypes.Object,
+    event: PropTypes.object,
+    map: PropTypes.object,
     error: PropTypes.string,
     isFetching: PropTypes.bool,
 };

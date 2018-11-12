@@ -10,7 +10,6 @@ export default class Location extends React.PureComponent {
     }
 
     renderTemplate = (resource) => {
-
         const time = Date.now();
 
         switch (resource) {
@@ -34,9 +33,7 @@ export default class Location extends React.PureComponent {
     }
 
     render() {
-
         const { color, cell, resource } = this.props;
-        
 
         if (color && resource) {
             console.log("render Location");
@@ -45,9 +42,9 @@ export default class Location extends React.PureComponent {
                     <div classID="LocationId">{this.renderTemplate(resource)}</div>
                 </div>
             );
-        } else {
-            return null;
         }
+
+        return null;
     }
 }
 

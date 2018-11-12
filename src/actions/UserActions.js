@@ -111,7 +111,7 @@ export function worldTick(data) {
         for (let i = 0; i < map.obj.length; i++) {
             const item = map.obj[i];
 
-            if (item.type === "npc") {
+            if (item.type === "npc" && item.resources.helth > 0) {
                 const randomX = getRandomInRange(-1, 1);
                 const randomY = getRandomInRange(-1, 1);
 
@@ -124,6 +124,14 @@ export function worldTick(data) {
 
                 if (stepY <= map.size.height && stepY > 0) {
                     item.cell.y = stepY;
+                }
+
+                const f = item.resources.food - 10;
+                item.resources.food = f;
+
+                if (item.resources.food <= 0) {
+                    const h = item.resources.helth - 5;
+                    item.resources.helth = h;
                 }
             }
 

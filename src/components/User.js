@@ -24,24 +24,28 @@ export default class User extends React.PureComponent {
                 color: "red",
                 type: "npc",
                 typeName: "Lion",
+                resources: { helth: 100, food: 100 },
             },
             {
                 cell: { x: 4, y: 8 },
                 color: "grey",
                 type: "npc",
                 typeName: "Wolf",
+                resources: { helth: 100, food: 100 },
             },
             {
                 cell: { x: 8, y: 8 },
                 color: "orange",
                 type: "npc",
                 typeName: "Lion",
+                resources: { helth: 100, food: 100 },
             },
             {
                 cell: { x: 6, y: 3 },
                 color: "#9b6ee4",
                 type: "npc",
                 typeName: "Wolf",
+                resources: { helth: 100, food: 100 },
             },
             {
                 cell: { x: 4, y: 5 },

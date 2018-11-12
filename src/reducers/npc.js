@@ -1,20 +1,15 @@
 ﻿import {
-    EVENT_SUCCESS,
+    WORLD_TICK,
 } from "../consts/const";
 
 const initialState = {
     name: "",
-    error: "",
-    isFetching: false,
-    map: {},
-    events: [],
-    npc: {},
 };
 
 export default function npcReducer(state = initialState, action) {
     switch (action.type) {
-    //case EVENT_SUCCESS:
-    //    return { ...state, isFetching: false, events: action.payload };
+        case WORLD_TICK:
+        return { ...state};
 
 
     default:

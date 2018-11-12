@@ -9,40 +9,45 @@ export default class Location extends React.PureComponent {
         resource: 100,
     }
 
-    renderTemplate = () => {
-        const { color, cell, resource } = this.props;
+    renderTemplate = (resource) => {
+
         const time = Date.now();
 
-        if (color && resource) {
-            switch (resource) {
-            case "grass": {
-                return (
-                    <Grass {...this.props} key={`grass_${time}`}/>
-                );
-            }
-            case "water": {
-                return (
-                    <Lake {...this.props} key={`water_${time}`}/>
-                );
-            }
-            case "rock": {
-                return (
-                    <Rock {...this.props} key={`rock_${time}`}/>
-                );
-            }
-            default: return "unknown type";
-            }
+        switch (resource) {
+        case "grass": {
+            return (
+                <Grass {...this.props} key={`grass_${time}`}/>
+            );
         }
-
-        return <pre style={{ width: "63px" }}> </pre>;
+        case "water": {
+            return (
+                <Lake {...this.props} key={`water_${time}`}/>
+            );
+        }
+        case "rock": {
+            return (
+                <Rock {...this.props} key={`rock_${time}`}/>
+            );
+        }
+        default: return "unknown type";
+        }
     }
 
     render() {
-        return (
-            <div style={{ display: "inline-block" }}>
-                <div classID="LocationId">{this.renderTemplate()}</div>
-            </div>
-        );
+
+        const { color, cell, resource } = this.props;
+        
+
+        if (color && resource) {
+            console.log("render Location");
+            return (
+                <div style={{ position: "absolute", top: `${cell.y * 50}px`, left: `${cell.x * 80}px` }}>
+                    <div classID="LocationId">{this.renderTemplate(resource)}</div>
+                </div>
+            );
+        } else {
+            return null;
+        }
     }
 }
 

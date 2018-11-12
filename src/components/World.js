@@ -5,6 +5,9 @@ import LocationContainer from "./LocationContainer";
 
 export default class World extends React.PureComponent {
     renderTemplate = () => {
+
+        console.log("render World");
+
         const { map, error } = this.props.world;
 
         if (error) {
@@ -26,7 +29,7 @@ export default class World extends React.PureComponent {
                                 );
                             }
 
-                            if (!obj || (obj && obj.type === "location")) {
+                            if ((obj && obj.type === "location")) {
                                 return (
                                     <LocationContainer {...obj} key={ `LocationContainer_${time - index}` } />
                                 );
@@ -85,7 +88,7 @@ export default class World extends React.PureComponent {
         return (
             <div >
                 <div classID="worldId" style={{
-                    width: "900px", border: "1px solid", backgroundColor: bgColor }}>{this.renderTemplate()}</div>
+                    width: "900px", border: "1px solid", backgroundColor: bgColor, position: "relative" }}>{this.renderTemplate()}</div>
             </div>
         );
     }

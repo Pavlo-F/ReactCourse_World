@@ -2,7 +2,6 @@
     CREATE_WORLD_FAIL,
     CREATE_WORLD_SUCCESS,
     GET_WORLD_SUCCESS,
-    WORLD_TICK,
 } from "../consts/const";
 
 const initialState = {
@@ -18,7 +17,6 @@ export default function worldReducer(state = initialState, action) {
 
         case CREATE_WORLD_SUCCESS:
         case GET_WORLD_SUCCESS:
-        case WORLD_TICK:
             return {
                 ...state, isFetching: false, name: action.payload.user, map: action.payload.map, events: action.payload.events,
             };

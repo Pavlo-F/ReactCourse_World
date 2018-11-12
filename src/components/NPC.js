@@ -11,6 +11,9 @@ export default class NPC extends React.PureComponent {
     }
 
     renderTemplate = () => {
+
+        console.log("render NPC");
+
         const { color, cell, typeName } = this.props;
 
         const time = Date.now();
@@ -36,8 +39,11 @@ export default class NPC extends React.PureComponent {
     }
 
     render() {
+
+    const { cell } = this.props;
+
         return (
-            <div style={{ display: "inline-block" }}>
+            <div style={{ position: "absolute", top: `${cell.y * 50}px`, left: `${cell.x * 80}px`, zIndex: "10"  }}>
                 <div classID="NPCId">{this.renderTemplate()}</div>
             </div>
         );

@@ -88,7 +88,7 @@ export default class World extends React.PureComponent {
         return (
             <div >
                 <div classID="worldId" style={{
-                    width: "900px", border: "1px solid", backgroundColor: bgColor, position: "relative" }}>{this.renderTemplate()}</div>
+                    width: "900px", height: "600px", border: "1px solid", backgroundColor: bgColor, position: "relative" }}>{this.renderTemplate()}</div>
             </div>
         );
     }

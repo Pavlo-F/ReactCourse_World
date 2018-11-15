@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import Lion from "./NPCTypes/Lion";
 import Wolf from "./NPCTypes/Wolf";
 import Rip from "./NPCTypes/Rip";
+import Rabbit from "./NPCTypes/Rabbit";
+import "./NPCAnimation.css";
 
 export default class NPC extends React.PureComponent {
     renderTemplate = () => {
-
         console.log("render NPC");
 
         const { color, typeName } = this.props;
@@ -29,12 +30,17 @@ export default class NPC extends React.PureComponent {
                     <Wolf {...this.props} key={`Wolf_${time}`}/>
                 );
             }
+            case "Rabbit": {
+                return (
+                    <Rabbit {...this.props} key={`Rabbit_${time}`} />
+            );
+}
 
             default: return "unknown type";
             }
         }
 
-        return "";
+        return null;
     }
 
 
@@ -52,14 +58,16 @@ export default class NPC extends React.PureComponent {
 
         return null;
     }
-    
+
+
     render() {
         const { cell } = this.props;
 
         return (
-            <div style={{ position: "absolute", top: `${cell.y * 50}px`, left: `${cell.x * 80}px`, zIndex: "10"  }}>
+            <div style={{
+                position: "absolute", top: `${cell.y * 50}px`, left: `${cell.x * 80}px`, zIndex: "10",
+            }} className="moving">
                 <div classID="NPCId">{this.renderTemplate()}</div>
-
 
                 {this.renderHelth()}
             </div>

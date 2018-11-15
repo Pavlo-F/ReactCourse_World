@@ -4,7 +4,7 @@ import {
     EVENT_FAIL,
 } from "../consts/const";
 
-import getEvent from "../services/eventService"
+import getEvent from "../services/eventService";
 
 function requestEvent(event, dispatch) {
     dispatch({

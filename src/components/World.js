@@ -5,7 +5,6 @@ import LocationContainer from "./LocationContainer";
 
 export default class World extends React.PureComponent {
     renderTemplate = () => {
-
         console.log("render World");
 
         const { map, error } = this.props.world;
@@ -34,11 +33,15 @@ export default class World extends React.PureComponent {
                                     <LocationContainer {...obj} key={ `LocationContainer_${time - index}` } />
                                 );
                             }
+
+                            return null;
                         })
                     }
                 </div>
             );
         }
+
+        return null;
     }
 
     static createField(map) {
@@ -49,7 +52,7 @@ export default class World extends React.PureComponent {
                 let isExist = false;
 
                 if (map.obj && map.obj.length) {
-                    const obj = map.obj;
+                    const { obj } = map;
 
                     for (let i = 0; i < obj.length; i++) {
                         if (obj[i].cell.x === x && obj[i].cell.y === y) {
@@ -72,14 +75,12 @@ export default class World extends React.PureComponent {
 
 
     render() {
-
         const { event } = this.props.event;
 
         let bgColor = "";
 
         if (event && event.time === "night") {
             bgColor = "rgb(39, 39, 39)";
-
         } else {
             bgColor = "rgb(255, 242, 196)";
         }
@@ -88,7 +89,9 @@ export default class World extends React.PureComponent {
         return (
             <div >
                 <div classID="worldId" style={{
-                    width: "900px", height: "600px", border: "1px solid", backgroundColor: bgColor, position: "relative" }}>{this.renderTemplate()}</div>
+                    width: "900px", height: "600px", border: "1px solid", backgroundColor: bgColor, position: "relative",
+                }
+                }>{this.renderTemplate()}</div>
             </div>
         );
     }

@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import Location from "./Location";
-//import { getTemperature, getTimeOfday } from "../actions/NPCActions";
 
 class LocationContainer extends React.PureComponent {
     render() {

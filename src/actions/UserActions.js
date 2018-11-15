@@ -104,9 +104,9 @@ function getRandomInRange(min, max) {
 
 export function worldTick(data) {
     return function (dispatch) {
-        const { map } = { ...data.world };
+        const { map } = data.world;
 
-        const newObjs = [];
+        //const newObjs = [];
 
         for (let i = 0; i < map.obj.length; i++) {
             const item = map.obj[i];
@@ -118,6 +118,33 @@ export function worldTick(data) {
                 const stepX = item.cell.x + randomX;
                 const stepY = item.cell.y + randomY;
 
+
+                item.resources.food -= 10;
+
+
+                if (item.resources.food <= 0) {
+                    item.resources.helth -= 5;
+                }
+
+                let nextCellObj = {};
+
+                for (let k = 0; k < map.obj.length; k++) {
+                    if (map.obj[k].cell.x === stepX && map.obj[k].cell.y === stepY) {
+                        nextCellObj = map.obj[k];
+                        break;
+                    }
+                }
+
+
+                if (nextCellObj.resource === item.food) {
+                    item.resources.food = 100;
+
+                    if (nextCellObj.type === "npc") {
+                        nextCellObj.resources.helth = 0;
+                    }
+                }
+
+
                 if (stepX <= map.size.width && stepX > 0) {
                     item.cell.x = stepX;
                 }
@@ -126,23 +153,16 @@ export function worldTick(data) {
                     item.cell.y = stepY;
                 }
 
-                const f = item.resources.food - 10;
-                item.resources.food = f;
-
-                if (item.resources.food <= 0) {
-                    const h = item.resources.helth - 5;
-                    item.resources.helth = h;
-                }
             }
 
-            newObjs.push(item);
+            //newObjs.push(item);
         }
 
-        map.obj = newObjs;
+        //map.obj = newObjs;
 
         dispatch({
             type: WORLD_TICK,
-            payload: { ...data, map },
+            //payload: { ...data, map },
         });
     };
 }

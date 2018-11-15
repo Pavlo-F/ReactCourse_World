@@ -7,9 +7,9 @@ export default class Rock extends React.PureComponent {
         if (color) {
             return (
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                    width="150.000000pt" height="70.000000pt" viewBox="0 0 1280.000000 883.000000"
+                    width="190.000000pt" height="250.000000pt" viewBox="0 0 1280.000000 883.000000"
                     preserveAspectRatio="xMidYMid meet">
-                    <g transform="translate(0.000000,883.000000) scale(0.120000,-0.120000)"
+                    <g transform="translate(0.000000,883.000000) scale(0.100000,-0.100000)"
                         fill={color} stroke="none">
                         <path d="M5669 6134 c-8 -8 -72 -43 -144 -78 l-130 -64 -260 -233 c-301 -270
 -334 -302 -438 -426 -94 -112 -183 -180 -301 -230 -51 -21 -118 -59 -156 -89

@@ -53,7 +53,7 @@ export default class User extends React.PureComponent {
             },
             {
                 cell: { x: 1, y: 4 },
-                color: "white",
+                color: "gray",
                 type: "npc",
                 typeName: "Rabbit",
                 resources: { helth: 100, food: 100 },
@@ -62,7 +62,7 @@ export default class User extends React.PureComponent {
             },
             {
                 cell: { x: 1, y: 5 },
-                color: "white",
+                color: "gray",
                 type: "npc",
                 typeName: "Rabbit",
                 resources: { helth: 100, food: 100 },
@@ -71,7 +71,7 @@ export default class User extends React.PureComponent {
             },
             {
                 cell: { x: 2, y: 4 },
-                color: "white",
+                color: "gray",
                 type: "npc",
                 typeName: "Rabbit",
                 resources: { helth: 100, food: 100 },
@@ -80,7 +80,7 @@ export default class User extends React.PureComponent {
             },
             {
                 cell: { x: 2, y: 5 },
-                color: "white",
+                color: "gray",
                 type: "npc",
                 typeName: "Rabbit",
                 resources: { helth: 100, food: 100 },
@@ -89,7 +89,7 @@ export default class User extends React.PureComponent {
             },
             {
                 cell: { x: 3, y: 4 },
-                color: "white",
+                color: "gray",
                 type: "npc",
                 typeName: "Rabbit",
                 resources: { helth: 100, food: 100 },
@@ -98,7 +98,7 @@ export default class User extends React.PureComponent {
             },
             {
                 cell: { x: 3, y: 5 },
-                color: "white",
+                color: "gray",
                 type: "npc",
                 typeName: "Rabbit",
                 resources: { helth: 100, food: 100 },
@@ -107,7 +107,7 @@ export default class User extends React.PureComponent {
             },
             {
                 cell: { x: 2, y: 9 },
-                color: "white",
+                color: "gray",
                 type: "npc",
                 typeName: "Rabbit",
                 resources: { helth: 100, food: 100 },

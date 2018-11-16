@@ -33,8 +33,8 @@ export default class NPC extends React.PureComponent {
             case "Rabbit": {
                 return (
                     <Rabbit {...this.props} key={`Rabbit_${time}`} />
-            );
-}
+                );
+            }
 
             default: return "unknown type";
             }
@@ -45,14 +45,25 @@ export default class NPC extends React.PureComponent {
 
 
     renderHelth() {
-        const { helth, food } = this.props.resources;
+        let { helth, food } = this.props.resources;
+
+        if (food < 0) {
+            food = 0;
+        }
+
+        if (helth < 0) {
+            helth = 0;
+        }
 
         if (helth > 0) {
             return (
                 <div>
-                    <div>h: {helth}</div>
-                    <div>f: {food}</div>
+                    <div style={{ width: "50px", height: "6px" }}>
+                        <div style={{ width: `${helth}%`, height: "50%", backgroundColor: "green" }}></div>
+                        <div style={{ width: `${food}%`, height: "50%", backgroundColor: "orange" }}></div>
+                    </div>
                 </div>
+
             );
         }
 
@@ -65,7 +76,7 @@ export default class NPC extends React.PureComponent {
 
         return (
             <div style={{
-                position: "absolute", top: `${cell.y * 50}px`, left: `${cell.x * 80}px`, zIndex: "10",
+                position: "absolute", top: `${cell.y * 50}px`, left: `${cell.x * 50}px`, zIndex: "10",
             }} className="moving">
                 <div classID="NPCId">{this.renderTemplate()}</div>
 

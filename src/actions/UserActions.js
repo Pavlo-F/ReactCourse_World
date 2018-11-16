@@ -10,6 +10,7 @@ import {
 } from "../consts/const";
 
 import { getWorld, setWorld } from "../services/worldService";
+import move from "./NPCActions";
 
 export function handleLogin(userName) {
     return function (dispatch) {
@@ -98,10 +99,6 @@ export function createWorld(userName, worldMap, worldEvents, isSendEvent) {
 }
 
 
-function getRandomInRange(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 export function worldTick(data) {
     return function (dispatch) {
         const { map } = data.world;
@@ -111,49 +108,7 @@ export function worldTick(data) {
         for (let i = 0; i < map.obj.length; i++) {
             const item = map.obj[i];
 
-            if (item.type === "npc" && item.resources.helth > 0) {
-                const randomX = getRandomInRange(-1, 1);
-                const randomY = getRandomInRange(-1, 1);
-
-                const stepX = item.cell.x + randomX;
-                const stepY = item.cell.y + randomY;
-
-
-                item.resources.food -= 10;
-
-
-                if (item.resources.food <= 0) {
-                    item.resources.helth -= 5;
-                }
-
-                let nextCellObj = {};
-
-                for (let k = 0; k < map.obj.length; k++) {
-                    if (map.obj[k].cell.x === stepX && map.obj[k].cell.y === stepY) {
-                        nextCellObj = map.obj[k];
-                        break;
-                    }
-                }
-
-
-                if (nextCellObj.resource === item.food) {
-                    item.resources.food = 100;
-
-                    if (nextCellObj.type === "npc") {
-                        nextCellObj.resources.helth = 0;
-                    }
-                }
-
-
-                if (stepX <= map.size.width && stepX > 0) {
-                    item.cell.x = stepX;
-                }
-
-                if (stepY <= map.size.height && stepY > 0) {
-                    item.cell.y = stepY;
-                }
-
-            }
+            move(item, map);
 
             //newObjs.push(item);
         }

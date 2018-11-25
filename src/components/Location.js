@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import Grass from "./LocationTypes/Grass";
 import Rock from "./LocationTypes/Rock";
 import Lake from "./LocationTypes/Lake";
 
-export default class Location extends React.PureComponent {
+class Location extends React.PureComponent {
     state = {
         resource: 100,
     }
@@ -34,9 +35,9 @@ export default class Location extends React.PureComponent {
 
     render() {
         const { color, cell, resource } = this.props;
+        console.log("render Location");
 
         if (color && resource) {
-            console.log("render Location");
             return (
                 <div style={{ position: "absolute", top: `${cell.y * 50}px`, left: `${cell.x * 50}px` }}>
                     <div classID="LocationId">{this.renderTemplate(resource)}</div>
@@ -47,6 +48,20 @@ export default class Location extends React.PureComponent {
         return null;
     }
 }
+
+const mapStateToProps = store => ({
+    // npc: store.npc,
+});
+
+const mapDispatchToProps = dispatch => ({
+    // getTemperature: () => dispatch(getTemperature()),
+    // getTimeOfday: () => dispatch(getTimeOfday()),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Location);
 
 Location.propTypes = {
     color: PropTypes.string,

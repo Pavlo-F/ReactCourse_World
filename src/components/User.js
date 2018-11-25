@@ -1,7 +1,9 @@
 ﻿import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { handleLogin, createWorld, worldTick } from "../actions/UserActions";
 
-export default class User extends React.PureComponent {
+class User extends React.PureComponent {
     state = {
         userNameid: "",
     }
@@ -204,7 +206,7 @@ export default class User extends React.PureComponent {
 
         if (map && name) {
             const events = [{ 1: 1 }, { 1: 2 }];
-            this.props.worldTick({ ...this.props, map, events });
+            this.props.worldTick();
         }
     }
 
@@ -271,6 +273,22 @@ export default class User extends React.PureComponent {
         );
     }
 }
+
+const mapStateToProps = store => ({
+    user: store.user,
+    world: store.world,
+});
+
+const mapDispatchToProps = dispatch => ({
+    handleLogin: userName => dispatch(handleLogin(userName)),
+    createWorld: (userName, map, events) => dispatch(createWorld(userName, map, events)),
+    worldTick: props => dispatch(worldTick(props)),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(User);
 
 User.propTypes = {
     name: PropTypes.string,

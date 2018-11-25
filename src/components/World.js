@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import NPCContainer from "./NPCContainer";
-import LocationContainer from "./LocationContainer";
+import { connect } from "react-redux";
+import NPC from "./NPC";
+import Location from "./Location";
+import { getTemperature, getTimeOfday } from "../actions/WorldActions";
 
-export default class World extends React.PureComponent {
+class World extends React.PureComponent {
     renderTemplate = () => {
         console.log("render World");
 
@@ -24,13 +26,13 @@ export default class World extends React.PureComponent {
                         field.map((obj, index) => {
                             if (obj.type === "npc") {
                                 return (
-                                    <NPCContainer {...obj} key= { `NPCContainer_${time - index}` } />
+                                    <NPC {...obj} {...map.size} key= { `NPC_${time - index}` } />
                                 );
                             }
 
                             if ((obj && obj.type === "location")) {
                                 return (
-                                    <LocationContainer {...obj} key={ `LocationContainer_${time - index}` } />
+                                    <Location {...obj} key={ `Location_${time - index}` } />
                                 );
                             }
 
@@ -96,6 +98,21 @@ export default class World extends React.PureComponent {
         );
     }
 }
+
+const mapStateToProps = store => ({
+    world: store.world,
+    event: store.event,
+});
+
+const mapDispatchToProps = dispatch => ({
+    getTemperature: () => dispatch(getTemperature()),
+    getTimeOfday: () => dispatch(getTimeOfday()),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(World);
 
 World.propTypes = {
     event: PropTypes.object,

@@ -17,7 +17,6 @@ function requestEvent(event, dispatch) {
 
     getEvent(body)
         .then((data) => {
-
             dispatch({
                 type: EVENT_SUCCESS,
                 payload: data,

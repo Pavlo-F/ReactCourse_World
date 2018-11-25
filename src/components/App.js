@@ -1,8 +1,8 @@
 ﻿import React, { PureComponent } from "react";
 
-import UserContainer from "./UserContainer";
-import WorldEventContainer from "./WorldEventContainer";
-import WorldContainer from "./WorldContainer";
+import User from "./User";
+import WorldEvent from "./WorldEvent";
+import World from "./World";
 import "./App.css";
 
 export default class App extends PureComponent {
@@ -13,9 +13,9 @@ export default class App extends PureComponent {
                     <h1 className="App-title">Мой мир</h1>
                 </header>
 
-                <UserContainer />
-                <WorldEventContainer />
-                <WorldContainer />
+                <User />
+                <WorldEvent />
+                <World />
 
             </div>
         );

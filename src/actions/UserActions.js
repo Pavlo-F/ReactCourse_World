@@ -4,13 +4,13 @@ import {
     LOGIN_FAIL,
     CREATE_USER_SUCCESS,
     CREATE_USER_FAIL,
-    WORLD_TICK,
     GET_WORLD_FAIL,
     GET_WORLD_SUCCESS,
+    WORLD_TICK,
 } from "../consts/const";
 
 import { getWorld, setWorld } from "../services/worldService";
-import move from "./NPCActions";
+//import move from "./NPCActions";
 
 export function handleLogin(userName) {
     return function (dispatch) {
@@ -30,7 +30,6 @@ export function handleLogin(userName) {
 
         getWorld(userName)
             .then((data) => {
-
                 dispatch({
                     type: LOGIN_SUCCESS,
                     payload: data,
@@ -40,7 +39,6 @@ export function handleLogin(userName) {
                     type: GET_WORLD_SUCCESS,
                     payload: data,
                 });
-
             })
             .catch((error) => {
                 console.log("Request failed", error);
@@ -79,7 +77,6 @@ export function createWorld(userName, worldMap, worldEvents, isSendEvent) {
 
         setWorld(userName, body)
             .then((data) => {
-
                 if (isSendEvent) {
                     dispatch({
                         type: CREATE_USER_SUCCESS,
@@ -99,25 +96,11 @@ export function createWorld(userName, worldMap, worldEvents, isSendEvent) {
 }
 
 
-export function worldTick(data) {
+export function worldTick() {
     return function (dispatch) {
-        const { map } = data.world;
-
-        //const newObjs = [];
-
-        for (let i = 0; i < map.obj.length; i++) {
-            const item = map.obj[i];
-
-            move(item, map);
-
-            //newObjs.push(item);
-        }
-
-        //map.obj = newObjs;
-
         dispatch({
             type: WORLD_TICK,
-            //payload: { ...data, map },
+        // payload: { ...data, map },
         });
     };
 }

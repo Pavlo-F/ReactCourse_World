@@ -1,7 +1,9 @@
 ﻿import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getTemperature, getTimeOfday } from "../actions/WorldActions";
 
-export default class WorldEvent extends React.PureComponent {
+class WorldEvent extends React.PureComponent {
     renderTemplate = () => {
         const { event, error } = this.props.event;
 
@@ -39,6 +41,21 @@ export default class WorldEvent extends React.PureComponent {
         );
     }
 }
+
+
+const mapStateToProps = store => ({
+    event: store.event,
+});
+
+const mapDispatchToProps = dispatch => ({
+    getTemperature: () => dispatch(getTemperature()),
+    getTimeOfday: () => dispatch(getTimeOfday()),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(WorldEvent);
 
 WorldEvent.propTypes = {
     event: PropTypes.object,

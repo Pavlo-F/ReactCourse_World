@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { MOVE, STARVATION } from "../../consts/algorithms";
+import { MOVE, STARVATION, EATING } from "../../consts/algorithms";
 
 export default class Button extends React.PureComponent {
     onMoveBtnClick = () => {
-        const { npc, width, height } = this.props.dataBase.raw;
+        let data = this.props.dataBase.raw;
 
-        if (npc) {
-            this.props.behave(npc, width, height, STARVATION);
+        if (data.npc) {
+            this.props.behave(data, STARVATION);
 
-            const newNpc = [...this.props.dataBase.raw.npc];
-            this.props.behave(newNpc, width, height, MOVE);
+            data = this.props.dataBase.raw;
+            this.props.behave(data, MOVE);
         }
     }
 

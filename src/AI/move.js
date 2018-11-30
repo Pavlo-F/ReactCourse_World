@@ -2,8 +2,11 @@ function getRandomInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export default function movingAlg(array, width, height) {
-    const result = array.map((point) => {
+export default function movingAlg(data) {
+
+
+
+    const result = data.npc.map((point) => {
         const randomX = getRandomInRange(-1, 1);
         const randomY = getRandomInRange(-1, 1);
 
@@ -13,11 +16,11 @@ export default function movingAlg(array, width, height) {
         let ressultX = point.x;
         let ressultY = point.y;
 
-        if (stepX <= width && stepX > 0) {
+        if (stepX <= data.width && stepX > 0) {
             ressultX = stepX;
         }
 
-        if (stepY <= height && stepY > 0) {
+        if (stepY <= data.height && stepY > 0) {
             ressultY = stepY;
         }
 

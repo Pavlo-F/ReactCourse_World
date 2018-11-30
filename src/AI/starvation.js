@@ -1,5 +1,5 @@
-export default function starvation(array) {
-    const result = array.map(point => (
+export default function starvation(data) {
+    const result = data.npc.map(point => (
         { ...point, food: point.food - 10 }
     ));
 

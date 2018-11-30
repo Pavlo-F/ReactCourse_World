@@ -1,12 +1,8 @@
 ﻿import { combineReducers } from "redux";
-import userReducer from "./user";
-import eventReducer from "./worldEvent";
-import worldReducer from "./world";
-import npcReducer from "./npc";
+import dataBaseReducer from "./dataBase";
+import behaveReducer from "./behave";
 
-export const rootReducer = combineReducers({
-    user: userReducer,
-    event: eventReducer,
-    world: worldReducer,
-    npc: npcReducer,
+export default combineReducers({
+    dataBase: dataBaseReducer,
+    behave: behaveReducer,
 });

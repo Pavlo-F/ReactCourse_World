@@ -8,7 +8,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    behave: (data, algoritm) => dispatch(behave(data, algoritm)),
+    behave: (data, algoritms) => dispatch(behave(data, algoritms)),
     getDBData: name => dispatch(getDBData(name)),
     setDBData: (name, rawData) => dispatch(setDBData(name, rawData)),
 });

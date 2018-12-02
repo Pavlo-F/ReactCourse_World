@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { MOVE, STARVATION, EATING } from "../../consts/algorithms";
+import {
+    MOVE, STARVATION, EATING, DYING,
+} from "../../consts/algorithms";
+
+const algoritms = [STARVATION, EATING, DYING, MOVE];
 
 export default class Button extends React.PureComponent {
     onMoveBtnClick = () => {
-        let data = this.props.dataBase.raw;
+        const data = this.props.dataBase.raw;
 
         if (data.npc) {
-            this.props.behave(data, STARVATION);
-
-            data = this.props.dataBase.raw;
-            this.props.behave(data, MOVE);
+            this.props.behave(data, algoritms);
         }
     }
 
@@ -28,6 +29,42 @@ export default class Button extends React.PureComponent {
                 {
                     x: 2,
                     y: 2,
+                    color: "green",
+                    resource: "grass",
+                },
+                {
+                    x: 3,
+                    y: 3,
+                    color: "green",
+                    resource: "grass",
+                },
+                {
+                    x: 4,
+                    y: 3,
+                    color: "green",
+                    resource: "grass",
+                },
+                {
+                    x: 8,
+                    y: 8,
+                    color: "green",
+                    resource: "grass",
+                },
+                {
+                    x: 7,
+                    y: 8,
+                    color: "green",
+                    resource: "grass",
+                },
+                {
+                    x: 7,
+                    y: 7,
+                    color: "green",
+                    resource: "grass",
+                },
+                {
+                    x: 8,
+                    y: 7,
                     color: "green",
                     resource: "grass",
                 },
@@ -50,6 +87,116 @@ export default class Button extends React.PureComponent {
                     type: "herbivorous",
                     resource: "meat",
                     foodType: "grass",
+                },
+                {
+                    x: 4,
+                    y: 5,
+                    helth: 100,
+                    food: 100,
+                    color: "gray",
+                    typeName: "Rabbit",
+                    type: "herbivorous",
+                    resource: "meat",
+                    foodType: "grass",
+                },
+                {
+                    x: 5,
+                    y: 5,
+                    helth: 100,
+                    food: 100,
+                    color: "gray",
+                    typeName: "Rabbit",
+                    type: "herbivorous",
+                    resource: "meat",
+                    foodType: "grass",
+                },
+                {
+                    x: 6,
+                    y: 5,
+                    helth: 100,
+                    food: 100,
+                    color: "gray",
+                    typeName: "Rabbit",
+                    type: "herbivorous",
+                    resource: "meat",
+                    foodType: "grass",
+                },
+                {
+                    x: 3,
+                    y: 6,
+                    helth: 100,
+                    food: 100,
+                    color: "gray",
+                    typeName: "Rabbit",
+                    type: "herbivorous",
+                    resource: "meat",
+                    foodType: "grass",
+                },
+                {
+                    x: 4,
+                    y: 6,
+                    helth: 100,
+                    food: 100,
+                    color: "gray",
+                    typeName: "Rabbit",
+                    type: "herbivorous",
+                    resource: "meat",
+                    foodType: "grass",
+                },
+                {
+                    x: 5,
+                    y: 6,
+                    helth: 100,
+                    food: 100,
+                    color: "gray",
+                    typeName: "Rabbit",
+                    type: "herbivorous",
+                    resource: "meat",
+                    foodType: "grass",
+                },
+                {
+                    x: 4,
+                    y: 6,
+                    helth: 100,
+                    food: 100,
+                    color: "gray",
+                    typeName: "Rabbit",
+                    type: "herbivorous",
+                    resource: "meat",
+                    foodType: "grass",
+                },
+                {
+                    x: 5,
+                    y: 6,
+                    helth: 100,
+                    food: 100,
+                    color: "gray",
+                    typeName: "Rabbit",
+                    type: "herbivorous",
+                    resource: "meat",
+                    foodType: "grass",
+                },
+                {
+                    x: 5,
+                    y: 5,
+                    helth: 100,
+                    food: 100,
+                    color: "black",
+                    type: "predator",
+                    typeName: "Wolf",
+                    resource: "meat",
+                    foodType: "meat",
+                },
+                {
+                    x: 5,
+                    y: 5,
+                    helth: 100,
+                    food: 100,
+                    color: "red",
+                    type: "predator",
+                    typeName: "Wolf",
+                    resource: "meat",
+                    foodType: "meat",
                 },
                 {
                     x: 5,

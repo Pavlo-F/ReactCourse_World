@@ -14,7 +14,7 @@ export default class NPC extends React.Component {
         const time = Date.now();
 
 
-        if (helth === 0) {
+        if (helth <= 0) {
             return <Rip key={`Rip_${time}`} />;
         }
 

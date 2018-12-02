@@ -40,7 +40,7 @@ export default class Location extends React.PureComponent {
 
         if (color && resource) {
             return (
-                <div style={{ position: "absolute", top: `${y * 50}px`, left: `${x * 50}px` }}>
+                <div style={{ position: "absolute", top: `${y*50}px`, left: `${x*10}px` }}>
                     <div classID="LocationId">{this.renderTemplate(resource)}</div>
                 </div>
             );

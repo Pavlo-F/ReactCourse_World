@@ -3,18 +3,19 @@ function getRandomInRange(min, max) {
 }
 
 export default function movingAlg(data) {
+    const result = data.npc.map((animal) => {
+        if (animal.helth <= 0) {
+            return animal;
+        }
 
-
-
-    const result = data.npc.map((point) => {
         const randomX = getRandomInRange(-1, 1);
         const randomY = getRandomInRange(-1, 1);
 
-        const stepX = point.x + randomX;
-        const stepY = point.y + randomY;
+        const stepX = animal.x + randomX;
+        const stepY = animal.y + randomY;
 
-        let ressultX = point.x;
-        let ressultY = point.y;
+        let ressultX = animal.x;
+        let ressultY = animal.y;
 
         if (stepX <= data.width && stepX > 0) {
             ressultX = stepX;
@@ -24,7 +25,7 @@ export default function movingAlg(data) {
             ressultY = stepY;
         }
 
-        return { ...point, x: ressultX, y: ressultY };
+        return { ...animal, x: ressultX, y: ressultY };
     });
 
     return result;

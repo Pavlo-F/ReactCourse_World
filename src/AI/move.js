@@ -2,17 +2,42 @@ function getRandomInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function vision(allNpc, npc) {
+    let randomX = getRandomInRange(-1, 1);
+    let randomY = getRandomInRange(-1, 1);
+
+    let stepX = npc.x + randomX;
+    let stepY = npc.y + randomY;
+
+    switch (npc.type) {
+    case "herbivorous": {
+        const predator = allNpc.find(w => w.x === stepX && w.y === stepY && w.type === "predator");
+        if (predator) {
+            randomX *= -1;
+            randomY *= -1;
+        }
+
+        break;
+    }
+
+    default:
+    }
+
+    stepX = npc.x + randomX;
+    stepY = npc.y + randomY;
+
+
+    return { x: stepX, y: stepY };
+}
+
 export default function movingAlg(data) {
     const result = data.npc.map((animal) => {
         if (animal.helth <= 0) {
             return animal;
         }
 
-        const randomX = getRandomInRange(-1, 1);
-        const randomY = getRandomInRange(-1, 1);
+        const { x: stepX, y: stepY } = vision(data.npc, animal);
 
-        const stepX = animal.x + randomX;
-        const stepY = animal.y + randomY;
 
         let ressultX = animal.x;
         let ressultY = animal.y;

@@ -13,14 +13,16 @@ export default function eating(data) {
             }
         }
 
-        /*
-        const herbivorous = data.npc.find(w => w.x === animal.x && w.y === animal.y && animal.type === "herbivorous");
-        if (herbivorous && animal.type === "predator") {
-            if (herbivorous.resource === animal.foodType) {
+        const herbivorous = data.npc.filter(w => w.x === animal.x && w.y === animal.y && w.type !== "predator");
+        if (herbivorous && herbivorous.length > 0 && animal.type === "predator") {
+            const first = herbivorous[0];
+
+            if (first.helth > 0 && first.resource === animal.foodType) {
                 resNpc = { ...animal, food: 100 };
+                first.helth = 0;
             }
         }
-*/
+
         return resNpc;
     });
 

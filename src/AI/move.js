@@ -17,15 +17,14 @@ function vision(allNpc, npc) {
             randomY *= -1;
         }
 
+        stepX = npc.x + randomX;
+        stepY = npc.y + randomY;
+
         break;
     }
 
     default:
     }
-
-    stepX = npc.x + randomX;
-    stepY = npc.y + randomY;
-
 
     return { x: stepX, y: stepY };
 }

@@ -6,14 +6,13 @@ import AI from "../AI";
 
 
 export default function move(data, algoritms) {
-    let newObjs = [];
+    const newObjs = {
+        ...data,
+        npc: [...data.npc],
+    };
 
-    newObjs = data;
-
-
-    algoritms.map((alg) => {
+    algoritms.forEach((alg) => {
         newObjs.npc = AI[alg](newObjs);
-        return newObjs.npc;
     });
 
     return function (dispatch) {

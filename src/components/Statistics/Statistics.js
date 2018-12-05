@@ -21,7 +21,7 @@ export default class Statistics extends React.PureComponent {
                     <svg className="statistic" style={{ height: stat.columnsHeight }}>
                         {
                             stat.data.map((item, index) => (
-                                <rect
+                                <rect key={`rect_${index}`}
                                     x={(columnWidth + colSpace) * index}
                                     y={stat.columnsHeight - item.size}
                                     width={columnWidth} height={item.size}

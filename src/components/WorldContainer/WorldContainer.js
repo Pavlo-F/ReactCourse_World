@@ -7,8 +7,6 @@ export default class WorldContainer extends React.PureComponent {
     render() {
         const { raw } = this.props;
 
-        console.log(this.props);
-
         const bgColor = "rgb(255, 242, 196)";
 
         if (raw.locations && raw.npc) {
@@ -18,12 +16,12 @@ export default class WorldContainer extends React.PureComponent {
                 }}>
                     <div>
                         {
-                            raw.locations.map(loc => <Location {...loc} key={`loc_${loc.id}`}
+                            raw.locations.map((loc, index) => <Location {...loc} key={`loc_${index}`}
                             />)
                         }
 
                         {
-                            raw.npc.map(animal => <NPC {...animal} key={`animal_${animal.id}`}
+                            raw.npc.map((animal, index) => <NPC {...animal} key={`animal_${index}`}
                             />)
                         }
                     </ div>

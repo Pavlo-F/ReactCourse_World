@@ -1,3 +1,5 @@
+import { PREDATOR } from "../consts/animalType";
+
 export default function eating(data) {
     const result = data.npc.map((animal) => {
         if (animal.helth <= 0) {
@@ -13,8 +15,8 @@ export default function eating(data) {
             }
         }
 
-        const herbivorous = data.npc.filter(w => w.x === animal.x && w.y === animal.y && w.type !== "predator");
-        if (herbivorous && herbivorous.length > 0 && animal.type === "predator") {
+        const herbivorous = data.npc.filter(w => w.x === animal.x && w.y === animal.y && w.type !== PREDATOR);
+        if (herbivorous && herbivorous.length > 0 && animal.type === PREDATOR) {
             const first = herbivorous[0];
 
             if (first.helth > 0 && first.resource === animal.foodType) {

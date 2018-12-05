@@ -1,3 +1,5 @@
+import { HERBIVOROUS, PREDATOR } from "../consts/animalType";
+
 function getRandomInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -10,8 +12,8 @@ function vision(allNpc, npc) {
     let stepY = npc.y + randomY;
 
     switch (npc.type) {
-    case "herbivorous": {
-        const predator = allNpc.find(w => w.x === stepX && w.y === stepY && w.type === "predator");
+    case HERBIVOROUS: {
+        const predator = allNpc.find(w => w.x === stepX && w.y === stepY && w.type === PREDATOR);
         if (predator) {
             randomX *= -1;
             randomY *= -1;

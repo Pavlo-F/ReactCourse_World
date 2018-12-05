@@ -40,8 +40,8 @@ Button.propTypes = {
     behave: PropTypes.func.isRequired,
     getDBData: PropTypes.func.isRequired,
     setDBData: PropTypes.func.isRequired,
-    npc: PropTypes.object,
-    locations: PropTypes.object,
+    npc: PropTypes.array,
+    locations: PropTypes.array,
 };
 
 Button.defaultProps = {

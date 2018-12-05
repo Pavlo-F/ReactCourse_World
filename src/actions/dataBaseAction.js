@@ -6,6 +6,7 @@ import {
     GET_DB_DATA_ERROR,
     SET_DB_DATA_SUCCESS,
     SET_DB_DATA_ERROR,
+    STATISTICS_DATA,
 } from "../consts/const";
 
 export function getDBData(objName) {
@@ -21,6 +22,12 @@ export function getDBData(objName) {
                     type: GET_DB_DATA_SUCCESS,
                     payload: { raw: data.map },
                 });
+
+                dispatch({
+                    type: STATISTICS_DATA,
+                    payload: data.map.npc,
+                });
+
             })
             .catch((error) => {
                 console.log("Request failed", error);

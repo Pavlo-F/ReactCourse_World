@@ -1,8 +1,8 @@
 ﻿import { combineReducers } from "redux";
 import dataBaseReducer from "./dataBase";
-//import behaveReducer from "./behave";
+import statisticsReducer from "./statistics";
 
 export default combineReducers({
     dataBase: dataBaseReducer,
-   // behave: behaveReducer,
+    statistics: statisticsReducer,
 });

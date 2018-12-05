@@ -1,6 +1,7 @@
 ﻿import React, { PureComponent } from "react";
 import Button from "./Button";
 import WorldContainer from "./WorldContainer";
+import Statistics from "./Statistics";
 import FilterLink from "./FilterLink";
 
 
@@ -15,6 +16,9 @@ export default class App extends PureComponent {
                 <Button />
 
                 <WorldContainer />
+
+                <Statistics />
+
             </div>
         );
     }

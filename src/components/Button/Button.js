@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {
     MOVE, STARVATION, EATING, DYING,
 } from "../../consts/algorithms";
+import "./style.css";
 
 const algoritms = [STARVATION, EATING, DYING, MOVE];
 

@@ -9,15 +9,19 @@ export default class App extends PureComponent {
     render() {
         return (
             <div className="app">
-                <FilterLink filter="DBView">
-                    DataBase view
-                </FilterLink>
+                <div style={{ float: "left", height: "500px", paddingRight: "5px", marginTop: "4px" }}>
+                    <FilterLink filter="DBView">
+                        Данные в Json
+                    </FilterLink>
+                </div>
 
-                <Button />
+                <div style={{ display: "table" }}>
+                    <Button />
 
-                <WorldContainer />
+                    <WorldContainer />
 
-                <Statistics />
+                    <Statistics />
+                </div>
 
             </div>
         );

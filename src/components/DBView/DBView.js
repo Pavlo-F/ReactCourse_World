@@ -249,8 +249,7 @@ export default class DBView extends React.PureComponent {
                         <FilterLink filter="/">
                             World view
                         </FilterLink>
-                    </div>
-                    <div>
+
                         <button onClick={this.onShowDBDataBtnClick} >
                             Get DB data
                         </button>

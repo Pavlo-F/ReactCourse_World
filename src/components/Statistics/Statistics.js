@@ -30,13 +30,10 @@ export default class Statistics extends React.PureComponent {
                                 </rect>
                             ))
                         }
-
-
                     </svg>
                 </div>
             );
         }
-
 
         return result;
     }
@@ -59,7 +56,6 @@ export default class Statistics extends React.PureComponent {
             </div>
         );
     }
-
 }
 
 

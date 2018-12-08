@@ -6,22 +6,22 @@ import Lake from "../LocationTypes/Lake";
 
 export default class Location extends React.PureComponent {
     renderTemplate = (resource) => {
-        const time = Date.now();
+        const { id } = this.props;
 
         switch (resource) {
         case "grass": {
             return (
-                <Grass {...this.props} key={`grass_${time}`} />
+                <Grass {...this.props} key={`grass_${id}`} />
             );
         }
         case "water": {
             return (
-                <Lake {...this.props} key={`water_${time}`} />
+                <Lake {...this.props} key={`water_${id}`} />
             );
         }
         case "rock": {
             return (
-                <Rock {...this.props} key={`rock_${time}`} />
+                <Rock {...this.props} key={`rock_${id}`} />
             );
         }
         default: return "unknown type";
@@ -40,7 +40,7 @@ export default class Location extends React.PureComponent {
 
         if (color && resource) {
             return (
-                <div style={{ position: "absolute", top: `${y*50}px`, left: `${x*10}px` }}>
+                <div style={{ position: "absolute", top: `${y * 50}px`, left: `${x * 10}px` }}>
                     <div classID="LocationId">{this.renderTemplate(resource)}</div>
                 </div>
             );

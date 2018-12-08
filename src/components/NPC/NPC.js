@@ -10,29 +10,32 @@ export default class NPC extends React.Component {
     renderTemplate = () => {
         console.log("render NPC");
 
-        const { color, typeName, helth } = this.props;
-        const time = Date.now();
-
+        const {
+            color,
+            typeName,
+            helth,
+            id,
+        } = this.props;
 
         if (helth <= 0) {
-            return <Rip key={`Rip_${time}`} />;
+            return <Rip key={`Rip_${id}`} />;
         }
 
         if (color) {
             switch (typeName) {
             case "Lion": {
                 return (
-                    <Lion {...this.props} key={`Lion_${time}`} />
+                    <Lion {...this.props} key={`Lion_${id}`} />
                 );
             }
             case "Wolf": {
                 return (
-                    <Wolf {...this.props} key={`Wolf_${time}`} />
+                    <Wolf {...this.props} key={`Wolf_${id}`} />
                 );
             }
             case "Rabbit": {
                 return (
-                    <Rabbit {...this.props} key={`Rabbit_${time}`} />
+                    <Rabbit {...this.props} key={`Rabbit_${id}`} />
                 );
             }
 

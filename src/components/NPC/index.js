@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import NPC from "./NPC";
 
-const mapStateToProps = ({ dataBase, behave }) => ({
+const mapStateToProps = ({ dataBase }) => ({
     raw: dataBase.raw,
     error: dataBase.error,
     isFetching: dataBase.isFetching,

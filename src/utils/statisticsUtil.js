@@ -102,13 +102,19 @@ function getAnimalsHelthByType(data) {
 
 
 export default function getStatistics(data) {
-    const animalsCountStat = getAnimalsCount(data);
-    const animalsHelth = getAnimalsHelthByType(data);
+    let result = null;
 
-    return {
-        columnWidth: 70,
+    if (data) {
+        const animalsCountStat = getAnimalsCount(data);
+        const animalsHelth = getAnimalsHelthByType(data);
 
-        animalsCountStat,
-        animalsHelth,
-    };
+        result = {
+            columnWidth: 70,
+
+            animalsCountStat,
+            animalsHelth,
+        };
+    }
+
+    return result;
 }

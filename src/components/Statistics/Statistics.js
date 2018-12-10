@@ -6,7 +6,7 @@ export default class Statistics extends React.PureComponent {
     renderStat(stat, title) {
         const {
             columnWidth,
-        } = this.props.stat.lifeStat;
+        } = this.props.stat;
 
         const colSpace = 5;
         let result = null;
@@ -40,21 +40,27 @@ export default class Statistics extends React.PureComponent {
 
 
     render() {
-        const {
-            animalsCountStat,
-            animalsHelth,
-        } = this.props.stat.lifeStat;
+        let result = null;
 
-        return (
-            <div>
-                <div style={{ float: "left", width: "350px" }}>
-                    {this.renderStat(animalsCountStat, "График численности (травоядные/хищники):")}
-                </div>
+        if (this.props.stat) {
+            const {
+                animalsCountStat,
+                animalsHelth,
+            } = this.props.stat;
+
+            result = (
                 <div>
-                    {this.renderStat(animalsHelth, "График жизней животных по типу в % отношении:")}
+                    <div style={{ float: "left", width: "350px" }}>
+                        {this.renderStat(animalsCountStat, "График численности (травоядные/хищники):")}
+                    </div>
+                    <div>
+                        {this.renderStat(animalsHelth, "График жизней животных по типу в % отношении:")}
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
+
+        return result;
     }
 }
 

@@ -1,8 +1,5 @@
 import { HERBIVOROUS, PREDATOR } from "../consts/animalType";
-
-function getRandomInRange(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+import getRandomInRange from "../utils/randomUtil";
 
 function vision(allNpc, npc) {
     let randomX = getRandomInRange(-1, 1);

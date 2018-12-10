@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
-    MOVE, STARVATION, EATING, DYING,
+    MOVE, STARVATION, EATING, DYING, REPRODUCTION,
 } from "../../consts/algorithms";
 import "./style.css";
 
-const algoritms = [STARVATION, EATING, DYING, MOVE];
+const algoritms = [STARVATION, EATING, DYING, MOVE, REPRODUCTION];
 
 export default class Button extends React.PureComponent {
     onMoveBtnClick = () => {

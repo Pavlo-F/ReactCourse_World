@@ -70,7 +70,7 @@ export default class NPC extends React.Component {
             <div style={{
                 position: "absolute", top: `${y * 50}px`, left: `${x * 50}px`, zIndex: "10",
             }} className="moving">
-                <div classID="NPCId">{this.renderTemplate()}</div>
+                <div>{this.renderTemplate()}</div>
 
                 {this.renderHelth()}
             </div>

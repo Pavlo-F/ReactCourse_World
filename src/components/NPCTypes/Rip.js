@@ -24,7 +24,7 @@ export default class Rip extends React.PureComponent {
     render() {
         return (
             <div style={{ display: "inline-block" }}>
-                <div classID="NPCId">{this.renderTemplate()}</div>
+                <div>{this.renderTemplate()}</div>
             </div>
         );
     }

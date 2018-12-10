@@ -89,7 +89,7 @@ c-127 -11 -254 -99 -312 -216 -24 -48 -28 -69 -27 -137 0 -108 34 -197 79
     render() {
         return (
             <div style={{ display: "inline-block" }}>
-                <div classID="NPCId">{this.renderTemplate()}</div>
+                <div>{this.renderTemplate()}</div>
             </div>
         );
     }

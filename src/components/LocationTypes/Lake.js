@@ -157,7 +157,7 @@ m9861 -908 c0 -5 -7 -10 -16 -10 -8 0 -12 5 -9 10 3 6 10 10 16 10 5 0 9 -4 9
     render() {
         return (
             <div style={{ display: "inline-block" }}>
-                <div classID="NPCId">{this.renderTemplate()}</div>
+                <div>{this.renderTemplate()}</div>
             </div>
         );
     }

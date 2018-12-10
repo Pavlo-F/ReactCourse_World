@@ -143,7 +143,7 @@ c10 21 21 68 26 105 5 37 9 58 10 46 2 -43 18 -23 40 50 37 124 53 237 56 392
     render() {
         return (
             <div style={{ display: "inline-block" }}>
-                <div classID="NPCId">{this.renderTemplate()}</div>
+                <div>{this.renderTemplate()}</div>
             </div>
         );
     }

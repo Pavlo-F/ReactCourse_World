@@ -9,8 +9,8 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
     behave: (data, algoritms) => dispatch(behave(data, algoritms)),
-    getDBData: name => dispatch(getDBData(name)),
-    setDBData: (name, rawData) => dispatch(setDBData(name, rawData)),
+    getDBData: () => dispatch(getDBData("test")),
+    setDBData: rawData => dispatch(setDBData("test", rawData)),
 });
 
 export default connect(

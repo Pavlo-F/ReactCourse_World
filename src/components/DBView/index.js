@@ -3,8 +3,8 @@ import DBView from "./DBView";
 import { getDBData, setDBData } from "../../actions/dataBaseAction";
 
 const mapDispatchToProps = dispatch => ({
-    getDBData: name => dispatch(getDBData(name)),
-    setDBData: (name, rawData) => dispatch(setDBData(name, rawData)),
+    getDBData: () => dispatch(getDBData("test")),
+    setDBData: rawData => dispatch(setDBData("test", rawData)),
 });
 
 const mapStateToProps = ({ dataBase }) => ({

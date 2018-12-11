@@ -66,5 +66,10 @@ export default class Statistics extends React.PureComponent {
 
 
 Statistics.propTypes = {
-    props: PropTypes.object,
+    stat: PropTypes.shape({
+        animalsCountStat: PropTypes.object,
+        animalsHelth: PropTypes.object,
+        columnWidth: PropTypes.number,
+        columnsHeight: PropTypes.number,
+    }),
 };

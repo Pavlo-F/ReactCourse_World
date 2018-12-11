@@ -5,9 +5,9 @@ import defaultData from "../../consts/defaultData";
 
 export default class DBView extends React.PureComponent {
 
-    onShowDBDataBtnClick = () => this.props.getDBData("test");
+    onShowDBDataBtnClick = () => this.props.getDBData();
 
-    onCreateDBDataBtnClick = () => this.props.setDBData("test", defaultData);
+    onCreateDBDataBtnClick = () => this.props.setDBData(defaultData);
 
     render() {
         const { raw, isFetching, error } = this.props;

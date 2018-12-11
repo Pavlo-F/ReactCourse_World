@@ -1,5 +1,7 @@
+import host from "./environment";
+
 export function getData(name) {
-    const url = `http://localhost:5000/world?name=${name}`;
+    const url = `${host}/world?name=${name}`;
     return fetch(url)
         .then((response) => {
             if (!response.ok) {
@@ -11,7 +13,7 @@ export function getData(name) {
 }
 
 export function setData(bodyContent) {
-    const url = "http://localhost:5000/world";
+    const url = `${host}/world`;
     return fetch(url, {
         method: "post",
         headers: {

@@ -16,9 +16,9 @@ export default class Button extends React.PureComponent {
         }
     }
 
-    onShowDBDataBtnClick = () => this.props.getDBData("test");
+    onShowDBDataBtnClick = () => this.props.getDBData();
 
-    onSaveDBDataBtnClick = () => this.props.setDBData("test", this.props.dataBase.raw);
+    onSaveDBDataBtnClick = () => this.props.setDBData(this.props.dataBase.raw);
 
     render() {
         return (

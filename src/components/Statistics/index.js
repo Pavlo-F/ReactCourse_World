@@ -2,7 +2,7 @@
 import getStatistics from "../../utils/statisticsUtil";
 import Statistics from "./Statistics";
 
-const mapStateToProps = ({ dataBase }) => ({
+export const mapStateToProps = ({ dataBase }) => ({
     stat: getStatistics(dataBase.raw.npc),
 });
 

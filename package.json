@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "immutable": "^3.8.2",
+    "jest": "^23.6.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -18,19 +19,33 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "eslint": "node_modules/.bin/eslint src/"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx$": "babel-jest",
+      "^.+\\.js$": "babel-jest"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/jspm_packages"
+    ],
+    "unmockedModulePathPatterns": [
+      "./node_modules/react"
+    ]
+  },
   "devDependencies": {
+    "babel-plugin-css-modules-transform": "^1.6.2",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "lint-staged": "^7.2.0"
+    "lint-staged": "^7.2.0",
   },
   "lint-staged": {
     "*.{js, jsx}": [

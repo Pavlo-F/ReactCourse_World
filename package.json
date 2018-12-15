@@ -14,8 +14,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "webpack": "^3.11.0",
-    "babel-plugin-css-modules-transform": "^1.6.2"
+    "webpack": "^3.11.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,13 +31,17 @@
     },
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/jspm_packages"
+      "/jspm_packages",
+      "mappedProps.js"
     ],
     "unmockedModulePathPatterns": [
       "./node_modules/react"
     ]
   },
   "devDependencies": {
+    "babel-plugin-css-modules-transform": "^1.6.2",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",

@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Lion from "../NPCTypes/Lion";
-import Wolf from "../NPCTypes/Wolf";
-import Rip from "../NPCTypes/Rip";
-import Rabbit from "../NPCTypes/Rabbit";
+import NPCTemplate from "../NPCTypes/NPCTemplate";
+import LionSvg from "../NPCTypes/svg/lion.svg";
+import RabbitSvg from "../NPCTypes/svg/rabbit.svg";
+import RipSvg from "../NPCTypes/svg/rip.svg";
+import WolfSvg from "../NPCTypes/svg/wolf.svg";
+
 import "./NPCAnimation.css";
 
 export default class NPC extends React.Component {
@@ -18,24 +20,24 @@ export default class NPC extends React.Component {
         } = this.props;
 
         if (helth <= 0) {
-            return <Rip key={`Rip_${id}`} />;
+            return <NPCTemplate path={RipSvg} key={`Rip_${id}`} />;
         }
 
         if (color) {
             switch (typeName) {
             case "Lion": {
                 return (
-                    <Lion {...this.props} key={`Lion_${id}`} />
+                    <NPCTemplate path={LionSvg} key={`Lion_${id}`} />
                 );
             }
             case "Wolf": {
                 return (
-                    <Wolf {...this.props} key={`Wolf_${id}`} />
+                    <NPCTemplate path={WolfSvg} key={`Wolf_${id}`} />
                 );
             }
             case "Rabbit": {
                 return (
-                    <Rabbit {...this.props} key={`Rabbit_${id}`} />
+                    <NPCTemplate path={RabbitSvg} key={`Rabbit_${id}`} />
                 );
             }
 

@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Grass from "../LocationTypes/Grass";
-import Rock from "../LocationTypes/Rock";
-import Lake from "../LocationTypes/Lake";
+import LocationTemplate from "../LocationTypes/LocationTemplate";
+import GrassSvg from "../LocationTypes/svg/grass.svg";
+import LakeSvg from "../LocationTypes/svg/lake.svg";
+import RockSvg from "../LocationTypes/svg/rock.svg";
 
 export default class Location extends React.PureComponent {
     renderTemplate = (resource) => {
@@ -11,17 +12,17 @@ export default class Location extends React.PureComponent {
         switch (resource) {
         case "grass": {
             return (
-                <Grass {...this.props} key={`grass_${id}`} />
+                <LocationTemplate path={GrassSvg} key={`grass_${id}`} />
             );
         }
         case "water": {
             return (
-                <Lake {...this.props} key={`water_${id}`} />
+                <LocationTemplate path={LakeSvg} key={`water_${id}`} />
             );
         }
         case "rock": {
             return (
-                <Rock {...this.props} key={`rock_${id}`} />
+                <LocationTemplate path={RockSvg} key={`rock_${id}`} />
             );
         }
         default: return "unknown type";

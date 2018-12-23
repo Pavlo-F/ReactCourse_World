@@ -1,4 +1,4 @@
-import random from "../utils/randomUtil";
+import { getRandomInRange } from "../utils/randomUtil";
 
 export default function reproduction(data) {
     const result = [...data.npc];
@@ -12,7 +12,7 @@ export default function reproduction(data) {
                 && w.id !== animal.id);
 
             if (npc) {
-                const isReproduction = random(1, 10) >= 8;
+                const isReproduction = getRandomInRange(1, 10) >= 9;
 
                 if (isReproduction) {
                     result.push({

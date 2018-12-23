@@ -1,5 +1,5 @@
 import { HERBIVOROUS, PREDATOR } from "../consts/animalType";
-import getRandomInRange from "../utils/randomUtil";
+import { getRandomInRange } from "../utils/randomUtil";
 
 function vision(allNpc, npc) {
     let randomX = getRandomInRange(-1, 1);

@@ -3,6 +3,7 @@
     GET_DB_DATA_SUCCESS,
     GET_DB_DATA_ERROR,
     MOVE_SHAPE,
+    SPAWN_SHAPE,
 } from "../consts/const";
 
 const initialState = {
@@ -34,6 +35,16 @@ export default function worldReducer(state = initialState, action) {
         };
 
     case MOVE_SHAPE:
+        return {
+            ...state,
+            raw: {
+                ...state.raw,
+                npc: [...action.payload],
+            },
+            isFetching: false,
+        };
+
+    case SPAWN_SHAPE:
         return {
             ...state,
             raw: {
